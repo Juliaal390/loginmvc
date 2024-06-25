@@ -170,6 +170,7 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePasswordModel.vb" />
     <Compile Include="Models\LoginDataModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,6 +241,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Login\Index.vbhtml" />
     <Content Include="Views\Home\Index.vbhtml" />
+    <Content Include="Views\Login\ChangePassword.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

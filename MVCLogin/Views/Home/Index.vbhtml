@@ -15,8 +15,9 @@ End Code
 </head>
 <body>
     <div> 
-        <h2>Seja bem vindo</h2>
+        <h2>Seja bem vindo(a)!</h2>
         <a href="@Url.Action("Logout", "Login")">Sair</a>
+        <a href="@Url.Action("ChangePassword", "Login")">Alterar Senha</a>
     </div>
 </body>
 </html>

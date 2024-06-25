@@ -27,5 +27,39 @@ Namespace Controllers
                 End If
             End Using
         End Function
+
+        <HttpGet>
+        Function ChangePassword() As ActionResult
+            ' Verifica se há um usuário logado
+            If Session("userID") IsNot Nothing Then
+                Return View()
+            Else
+                ' Se não houver usuário logado, redireciona para a página de login
+                Return RedirectToAction("Index")
+            End If
+        End Function
+
+        <HttpPost>
+        Function ChangePassword(model As ChangePasswordModel) As ActionResult
+            ' Verifica se há um usuário logado
+            If Session("userID") IsNot Nothing Then
+                Dim userId As Integer = Convert.ToInt32(Session("userID"))
+
+                Using db As New LoginDataBaseEntities()
+                    Dim user = db.Users.FirstOrDefault(Function(u) u.UserID = userId)
+
+                    If user IsNot Nothing Then
+                        ' Atualiza a senha do usuário
+                        user.Password = model.NewPassword
+                        db.SaveChanges()
+
+                        TempData("ChangePasswordSuccessMessage") = "Senha alterada com sucesso!"
+                    End If
+                End Using
+            End If
+
+            ' Redireciona de volta para a página inicial
+            Return RedirectToAction("Index", "Home")
+        End Function
     End Class
 End Namespace
