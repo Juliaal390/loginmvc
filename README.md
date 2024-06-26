@@ -1,11 +1,11 @@
-## Obs.: arquivos importantes:
+Obs.: arquivos importantes:
 
-MODELS <br/>
+### MODELS <br/>
 User.vb <br/>
 ChangePasswordModel.vb <br/>
 RegisterViewMode.vb <br/>
 
 Classes relacionadas ao banco de dados <br/>
-<br/><br/>
-VIEWS<br/>
+<br/>
+### VIEWS<br/>
 Home/Index.vbhtml: página para qual o usuário é redirecionado ao logar.
