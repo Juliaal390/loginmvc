@@ -12,6 +12,30 @@ End Code
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Home</title>
+    <style>
+        *, :root{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body{
+            background-color: #082639;
+            color: #ffffc7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+       a{
+           color: #ffffff;
+           padding: 2rem 0;
+       }
+       a:first-of-type{
+           margin-right: 1rem;
+       }
+    </style>
 </head>
 <body>
     <div> 
