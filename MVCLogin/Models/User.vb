@@ -5,6 +5,7 @@ Imports System.ComponentModel.DataAnnotations 'namespace que contém datatype
 
 Partial Public Class User
     Public Property UserID As Integer
+
     <Required(ErrorMessage:="Campo obrigatório")>
     <DisplayName("Usuário")> 'displayname é aplicado ACIMA da propriedade
     Public Property UserName As String

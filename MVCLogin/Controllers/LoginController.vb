@@ -61,5 +61,40 @@ Namespace Controllers
             ' Redireciona de volta para a página inicial
             Return RedirectToAction("Index", "Home")
         End Function
+
+
+
+
+
+
+
+        <HttpGet>
+        Function Register() As ActionResult
+            Return View()
+        End Function
+
+        <HttpPost>
+        Function Register(model As RegisterViewModel) As ActionResult
+            If ModelState.IsValid Then
+                Using db As New LoginDataBaseEntities()
+                    ' Verifique se o nome de usuário já existe
+                    If db.Users.Any(Function(u) u.UserName = model.UserName) Then
+                        ModelState.AddModelError("UserName", "Nome de usuário já existe.")
+                        Return View(model)
+                    End If
+
+                    ' Criar um novo usuário com os dados do modelo
+                    Dim newUser As New User With {
+                         .UserName = model.UserName,
+                           .Password = model.Password
+                         }
+                    db.Users.Add(newUser)
+                    db.SaveChanges()
+
+                    Return RedirectToAction("Index", "Login")
+                End Using
+            End If
+            Return View(model)
+        End Function
     End Class
 End Namespace
